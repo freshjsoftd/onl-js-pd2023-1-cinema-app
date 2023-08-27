@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MoviesList from './MoviesList'
 import MovieForm from './MovieForm';
 import api from '../../api/cinema-service';
+import { Box } from '@mui/material';
 
 function Movies() {
 
@@ -13,10 +14,10 @@ function Movies() {
   }, [])
 
   return (
-		<div className='movie-container'>
+		<Box className='movie-container'>
 			<MoviesList movies={movies} />
       <MovieForm />
-		</div>
+		</Box>
   );
 }
 
