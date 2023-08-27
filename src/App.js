@@ -1,21 +1,30 @@
+import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+
+import Layout from './components/Layout';
+import HomePage from './components/HomePage';
+import Movies from './components/Movies/Movies';
+import Directors from './components/Directors/Directors';
+import Actors from './components/Actors/Actors';
+import Studios from './components/Studios/Studios';
+import ErrorPage from './components/ErrorPage';
+
 import './App.css';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
-import Navigation from './components/Navigation/Navigation';
-import ServiceForms from './components/ServiceForms/ServiceForms';
 
 function App() {
   return (
-    <div className='container'>
-      <Header />
-      <div className='main-content'>
-        <Navigation />
-        <Main />
-        <ServiceForms />
-      </div>
-     <Footer />
-    </div>
+		<Router className='container'>
+			<Routes>
+				<Route path='/' element={<Layout />}>
+					<Route index element={<HomePage />} />
+					<Route path="movies/*" element={<Movies />} />
+					<Route path="actors/*" element={<Actors />} />
+					<Route path="directors/*" element={<Directors />} />
+					<Route path="studios/*" element={<Studios />} />
+					<Route path="error" element={<ErrorPage />} />
+					<Route path="*" element={<Navigate to="/error" replace/>} />
+				</Route>
+			</Routes>
+		</Router>
   );
 }
 
