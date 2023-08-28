@@ -3,6 +3,7 @@ import React from 'react'
 import Header from './Header/Header'
 import { NavLink, Outlet } from 'react-router-dom';
 import Footer from './Footer/Footer';
+import ServiceForms from './ServiceForms/ServiceForms';
 
 function Layout() {
   return (
@@ -27,14 +28,18 @@ function Layout() {
 						</ListItem>
 					</List>
 				</Grid>
-				<Grid item xl={9} lg={9} md={9} sm={12} xs={12}>
+				<Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
 					<main>
 						<Outlet />
+						
 					</main>
 				</Grid>
+				{<Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+					<ServiceForms />
+				</Grid>}
 				<Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-          <Footer />
-        </Grid>
+					<Footer />
+				</Grid>
 			</Grid>
 		</Box>
   );

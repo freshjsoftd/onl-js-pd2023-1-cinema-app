@@ -22,9 +22,9 @@ function Movies() {
         variant='contained'
         size='small'
         sx={{
-          p: "10px 30px",
-          m: "10px",
-          backgroundColor: "secondary.light",
+          p: "5px 30px",
+          m: "5px",
+          backgroundColor: "primary.dark",
           fontSize: "16px" }}
         >
           <Link style={{color: "white"}} to="add">Add</Link>
