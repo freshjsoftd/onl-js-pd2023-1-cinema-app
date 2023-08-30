@@ -55,7 +55,11 @@ function MovieForm() {
 					<Stack
 						direction='row'
 						spacing={2}
-						sx={{ bgcolor: 'aquamarine' }}
+						sx={{
+							bgcolor: 'primary.dark',
+							color: 'white',
+							pl: '10px',
+						}}
 					>
 						<label htmlFor='title' className='label'>
 							Title
@@ -237,7 +241,7 @@ function MovieForm() {
 						type='submit'
 						disabled={!isValid}
 						className='form-btn'
-						size='large'
+						size='small'
 						startIcon={<SaveIcon />}
 						// style={{ backgroundColor: 'teal' }}
 					>
@@ -248,7 +252,7 @@ function MovieForm() {
 						type='button'
 						className='form-btn'
 						onClick={goHome}
-						size='large'
+						size='small'
 						startIcon={<KeyboardReturnIcon />}
 					>
 						Return
@@ -257,7 +261,7 @@ function MovieForm() {
 						variant='contained'
 						type='reset'
 						className='form-btn'
-						size='large'
+						size='small'
 						startIcon={<ClearIcon />}
 					>
 						Reset
