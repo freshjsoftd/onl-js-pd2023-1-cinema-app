@@ -61,7 +61,7 @@ function MovieForm() {
 						<label htmlFor='title' className='label'>
 							Title
 						</label>
-						<Field name='title' />
+						<Field name='title' style={{ fontSize: '30px' }} />
 					</Stack>
 					<ErrorMessage name='title'>
 						{(msg) => <div className='error'>{msg}</div>}
@@ -84,6 +84,7 @@ function MovieForm() {
 										>
 											<Field
 												name={`stars[${index}]`}
+												style={{ fontSize: '30px' }}
 											></Field>
 											{index > 0 && (
 												<Button
@@ -125,6 +126,7 @@ function MovieForm() {
 										>
 											<Field
 												name={`producers[${index}]`}
+												style={{ fontSize: '30px' }}
 											></Field>
 											{index > 0 && (
 												<Button
@@ -166,6 +168,7 @@ function MovieForm() {
 										>
 											<Field
 												name={`companies[${index}]`}
+												style={{ fontSize: '30px' }}
 											/>
 											{index > 0 && (
 												<Button
@@ -196,7 +199,11 @@ function MovieForm() {
 					<label htmlFor='poster' className='label'>
 						Poster
 					</label>
-					<Field name='poster' as='textarea'></Field>
+					<Field
+						name='poster'
+						as='textarea'
+						style={{ fontSize: '20px' }}
+					></Field>
 				</Stack>
 				<Stack direction='row' spacing={8} justifyContent='center'>
 					<Button
