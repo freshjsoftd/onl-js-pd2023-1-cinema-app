@@ -11,16 +11,17 @@ const initialState = {
 }
 
 export const getAllMovies = createAsyncThunk(
-  `${SLICE_NAME}/getAllMovies`,
-  async function(_, {rejectWithValue}){
-    try {
-      const {data} = await api.get(`/${SLICE_NAME}`);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
-  }
-)
+	`${SLICE_NAME}/getAllMovies`,
+	async function (_, { rejectWithValue }) {
+		try {
+			const { data, status } = await api.get(`/${SLICE_NAME}`);
+			console.log(status);
+			return data;
+		} catch (error) {
+			return rejectWithValue(error.message);
+		}
+	}
+);
 
 export const createMovie = createAsyncThunk(
   `${SLICE_NAME}/createMovie`,
@@ -47,11 +48,11 @@ export const updateMovie = createAsyncThunk(
 	}
 );
 export const deleteMovie = createAsyncThunk(
-	`${SLICE_NAME}/updateMovie`,
+	`${SLICE_NAME}/deleteMovie`,
 	async function (id, { rejectWithValue }) {
 		try {
 			await api.delete(`/${SLICE_NAME}/${id}`);
-      return id;
+			return id;
 		} catch (error) {
 			return rejectWithValue(error);
 		}
@@ -65,24 +66,24 @@ const moviesSlice = createSlice({
 	initialState,
 	redusers: {},
 	extraReducers: {
-		[getAllMovies.fulfilled]: (state, payload) => {
+		[getAllMovies.fulfilled]: (state, {payload}) => {
 			state.movies = payload;
 			state.error = null;
 			state.isFetching = false;
 		},
-    [createMovie.fulfilled]: (state, payload) => {
+    [createMovie.fulfilled]: (state, {payload}) => {
       state.movies.push(payload);
       state.error = null;
       state.isFetching = false;
     },
-		[updateMovie.fulfilled]: (state, payload) => {
+		[updateMovie.fulfilled]: (state, {payload}) => {
 			state.movies = state.movies.map((movie) =>
 				movie.id === payload.id ? payload : movie
 			);
 			state.error = null;
 			state.isFetching = false;
 		},
-		[deleteMovie.fulfilled]: (state, payload) => {
+		[deleteMovie.fulfilled]: (state, {payload}) => {
 			state.movies = state.movies.filter(movie => movie.id !== payload)
 			state.error = null;
 			state.isFetching = false;

@@ -1,11 +1,22 @@
 import React from 'react';
-// import MovieItem from './MovieItem';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Box, Button, ButtonGroup, List, ListItem, Stack } from '@mui/material';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
-import { Link } from 'react-router-dom';
+
+import { deleteMovie } from '../../store/slices/moviesSlice';
+
+
 
 function MoviesList({ movies }) {
+
+	const dispatch = useDispatch();
+
+	const onDelete = (id) => {
+		dispatch(deleteMovie(id));
+	}
+
 	return (
 		<Box className='movie-list-container'>
 			<List>
@@ -20,11 +31,12 @@ function MoviesList({ movies }) {
 									<Link to={`add/${movie.id}`}>Edit</Link>
 								</Button>
 								<Button
-									startIcon={<DeleteForeverRoundedIcon 
-                  onClick={() =>{}}
-                  />}
+									onClick={() => onDelete(movie.id)}
+									startIcon={
+										<DeleteForeverRoundedIcon	/>
+									}
 								>
-									<Link to={`add/${movie.id}`}>Del</Link>
+									Del
 								</Button>
 							</ButtonGroup>
 						</Stack>

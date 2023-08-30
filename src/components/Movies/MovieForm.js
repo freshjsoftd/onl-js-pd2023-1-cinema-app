@@ -26,6 +26,7 @@ function MovieForm() {
 		directorsList: { directors }, */
 	} = useSelector((state) => state);
 
+
 	const { id } = useParams();
 	const navigate = useNavigate();
 	// console.log('actors',actors)
@@ -46,8 +47,8 @@ function MovieForm() {
 			: dispatch(updateMovie(values));
 	};
 
-	const renderForm = ({ isValid }) => {
-		// console.log('props', props);
+	const renderForm = ({ isValid, values }) => {
+		console.log('values', values);
 		return (
 			<Form id='form'>
 				<h1>Movies</h1>
@@ -75,8 +76,7 @@ function MovieForm() {
 					<FieldArray name='stars'>
 						{(fieldArrayProps) => {
 							console.log('fieldArrayProps', fieldArrayProps);
-							const { push, remove, form } = fieldArrayProps;
-							const { values } = form;
+							const { push, remove } = fieldArrayProps;
 							const { stars } = values;
 							return (
 								<Stack spacing={2}>
@@ -88,11 +88,11 @@ function MovieForm() {
 										>
 											<Field
 												name={`stars[${index}]`}
-												as='select'
+												// as='select'
 											>
-												<option value={star}>
-													{star}
-												</option>
+												{/* <option value={actor}>
+													{actor}
+												</option> */}
 												{/* {actors.map((actor) => (
 													<option
 														key={actor.id}
@@ -129,7 +129,7 @@ function MovieForm() {
 				</fieldset>
 				<fieldset className='items-container'>
 					<legend>Directors</legend>
-					<FieldArray name='producers'>
+					{/* <FieldArray name='producers'>
 						{({
 							push,
 							remove,
@@ -152,7 +152,7 @@ function MovieForm() {
 												<option value={producer}>
 													{producer}
 												</option>
-												{/* {directors.map((director) => (
+												{directors.map((director) => (
 													<option
 														key={director.id}
 														value={
@@ -161,7 +161,7 @@ function MovieForm() {
 													>
 														{director.fullName}
 													</option>
-												))} */}
+												))}
 											</Field>
 											{index > 0 && (
 												<Button
@@ -186,11 +186,11 @@ function MovieForm() {
 								</Stack>
 							);
 						}}
-					</FieldArray>
+					</FieldArray> */}
 				</fieldset>
 				<fieldset className='items-container'>
 					<legend>Studios</legend>
-					<FieldArray name='companies'>
+					{/* <FieldArray name='companies'>
 						{({ push, remove, form: { values } }) => {
 							const { companies } = values;
 							return (
@@ -227,7 +227,7 @@ function MovieForm() {
 								</Stack>
 							);
 						}}
-					</FieldArray>
+					</FieldArray> */}
 				</fieldset>
 				<Stack direction='row' spacing={2} className='field-container'>
 					<label htmlFor='poster' className='label'>
@@ -273,7 +273,7 @@ function MovieForm() {
 
 	return (
 		<Formik
-			initialValues={currentMovie ? currentMovie : emptyMovie}
+			initialValues={	currentMovie ? currentMovie : emptyMovie }
 			onSubmit={onMovieSubmit}
 			validationSchema={schema}
 		>

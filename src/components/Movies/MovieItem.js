@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-function MovieItem({movie: {title}}) {
+function MovieItem() {
+
+  const movies = useSelector((state) => state.moviesList.movies);
+
   return (
   <div>
-    {title}
+    {/* {title} */}
   </div>)
 }
 
