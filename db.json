@@ -216,6 +216,21 @@
         ""
       ],
       "poster": "https://upload.wikimedia.org/wikipedia/ru/thumb/e/e1/MissionImpossiblePoster.jpg/202px-MissionImpossiblePoster.jpg"
+    },
+    {
+      "title": "The Godfather",
+      "producers": [
+        "Francis Ford Coppola"
+      ],
+      "stars": [
+        "Marlon Brando",
+        "Alfredo James (Al) Pacino"
+      ],
+      "companies": [
+        "Paramount Pictures"
+      ],
+      "poster": "https://upload.wikimedia.org/wikipedia/ru/c/c4/Godfather_vhs.jpg",
+      "id": 1658819650105
     }
   ],
   "studios": [

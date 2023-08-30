@@ -1,8 +1,5 @@
 import { emptyMovie } from '../../constants';
-import {
-	createMovie,
-	updateMovie,
-} from '../../store/slices/moviesSlice';
+import { createMovie, updateMovie } from '../../store/slices/moviesSlice';
 // import CreateMovieField from './CreateMovieField'
 // ================================
 import React from 'react';
@@ -25,7 +22,6 @@ function MovieForm() {
 		/* actorsList: { actors },
 		directorsList: { directors }, */
 	} = useSelector((state) => state);
-
 
 	const { id } = useParams();
 	const navigate = useNavigate();
@@ -80,7 +76,7 @@ function MovieForm() {
 							const { stars } = values;
 							return (
 								<Stack spacing={2}>
-									{stars.map((star, index) => (
+									{stars.map((star, index, arr) => (
 										<Stack
 											direction='row'
 											key={index}
@@ -88,20 +84,7 @@ function MovieForm() {
 										>
 											<Field
 												name={`stars[${index}]`}
-												// as='select'
-											>
-												{/* <option value={actor}>
-													{actor}
-												</option> */}
-												{/* {actors.map((actor) => (
-													<option
-														key={actor.id}
-														value={actor.fullName}
-													>
-														{actor.fullName}
-													</option>
-												))} */}
-											</Field>
+											></Field>
 											{index > 0 && (
 												<Button
 													type='button'
@@ -129,14 +112,9 @@ function MovieForm() {
 				</fieldset>
 				<fieldset className='items-container'>
 					<legend>Directors</legend>
-					{/* <FieldArray name='producers'>
-						{({
-							push,
-							remove,
-							form: {
-								values: { producers },
-							},
-						}) => {
+					<FieldArray name='producers'>
+						{({ push, remove }) => {
+							const { producers } = values;
 							return (
 								<Stack spacing={2}>
 									{producers.map((producer, index) => (
@@ -147,22 +125,7 @@ function MovieForm() {
 										>
 											<Field
 												name={`producers[${index}]`}
-												as='select'
-											>
-												<option value={producer}>
-													{producer}
-												</option>
-												{directors.map((director) => (
-													<option
-														key={director.id}
-														value={
-															director.fullName
-														}
-													>
-														{director.fullName}
-													</option>
-												))}
-											</Field>
+											></Field>
 											{index > 0 && (
 												<Button
 													type='button'
@@ -186,12 +149,12 @@ function MovieForm() {
 								</Stack>
 							);
 						}}
-					</FieldArray> */}
+					</FieldArray>
 				</fieldset>
 				<fieldset className='items-container'>
 					<legend>Studios</legend>
-					{/* <FieldArray name='companies'>
-						{({ push, remove, form: { values } }) => {
+					<FieldArray name='companies'>
+						{({ push, remove }) => {
 							const { companies } = values;
 							return (
 								<Stack spacing={2}>
@@ -227,7 +190,7 @@ function MovieForm() {
 								</Stack>
 							);
 						}}
-					</FieldArray> */}
+					</FieldArray>
 				</fieldset>
 				<Stack direction='row' spacing={2} className='field-container'>
 					<label htmlFor='poster' className='label'>
@@ -273,7 +236,7 @@ function MovieForm() {
 
 	return (
 		<Formik
-			initialValues={	currentMovie ? currentMovie : emptyMovie }
+			initialValues={currentMovie ? currentMovie : emptyMovie}
 			onSubmit={onMovieSubmit}
 			validationSchema={schema}
 		>
