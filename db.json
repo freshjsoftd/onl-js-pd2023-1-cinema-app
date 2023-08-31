@@ -231,6 +231,25 @@
       ],
       "poster": "https://upload.wikimedia.org/wikipedia/ru/c/c4/Godfather_vhs.jpg",
       "id": 1658819650105
+    },
+    {
+      "title": "Game of Thrones",
+      "producers": [
+        "Brett Weiss",
+        "David Benioff"
+      ],
+      "stars": [
+        "Sean Bean",
+        "Emilia Clarke",
+        "Nikolaj Coster-Waldau",
+        "Kit Harington",
+        "Peter Dinklage"
+      ],
+      "companies": [
+        "HBO Entertainment"
+      ],
+      "poster": "https://upload.wikimedia.org/wikipedia/ru/4/49/Game_of_Thrones.jpg",
+      "id": 1658819650106
     }
   ],
   "studios": [
