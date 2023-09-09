@@ -29,7 +29,7 @@ function MovieForm() {
 	// console.log('movies',movies)
 	// console.log('directors', directors)
 
-	const currentMovie = movies.find((movies) => movies.id === parseInt(id));
+	const currentMovie = movies.find((movie) => movie.id === Number(id));
 
 	const schema = Yup.object().shape({
 		title: Yup.string().required('Title is required'),
@@ -44,7 +44,7 @@ function MovieForm() {
 	};
 
 	const renderForm = ({ isValid, values }) => {
-		console.log('values', values);
+		// console.log('values', values);
 		return (
 			<Form id='form'>
 				<h1>Movies</h1>
@@ -76,16 +76,16 @@ function MovieForm() {
 							const { stars } = values;
 							return (
 								<Stack spacing={2}>
-									{stars.map((star, index, arr) => (
+									{stars.map((_, index) => (
 										<Stack
 											direction='row'
 											key={index}
-											spacing={2}
+											spacing={3}
 										>
 											<Field
 												name={`stars[${index}]`}
 												style={{ fontSize: '30px' }}
-											></Field>
+											/>
 											{index > 0 && (
 												<Button
 													type='button'
@@ -118,7 +118,7 @@ function MovieForm() {
 							const { producers } = values;
 							return (
 								<Stack spacing={2}>
-									{producers.map((producer, index) => (
+									{producers.map((_, index) => (
 										<Stack
 											key={index}
 											direction='row'
