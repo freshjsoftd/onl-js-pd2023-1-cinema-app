@@ -1,7 +1,15 @@
+const fs = require('fs');
+const path = require('path');
+
 const express = require('express');
 
+const actorControllers = require('./controllers/actorController');
 
 const app = express();
+
+// app.use(express.static('./public'));
+// app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.resolve('public')));
 
 app.get('/', (req, res) => {
 	fs.readFile('./public/index.html', 'utf-8', (err, data) => {
@@ -14,6 +22,18 @@ app.get('/', (req, res) => {
 		res.end();
 	});
 });
+// Actors
+// getAllActors
+app.get('/actors', actorControllers.getActors);
+
+app.get('/actors/:actorId', actorControllers.getActorById);
+app.post('/actors/', ()=>{})
+app.put('/actors/id', ()=>{})
+app.delete('/actors/id', ()=>{})
+// getActorById
+// createActor
+// updateActor
+// deleteActor
 app.get('/contact', (req, res) => {
 	fs.readFile('./public/contact.html', 'utf-8', (err, data) => {
 		if (err) {
@@ -25,7 +45,7 @@ app.get('/contact', (req, res) => {
 		res.end();
 	});
 });
-app.get('/images/*', (req, res) => {
+/* app.get('/images/*', (req, res) => {
 	const url = req.url;
 	fs.readFile(`./public${url}`, (err, data) => {
 		if (err) {
@@ -36,4 +56,7 @@ app.get('/images/*', (req, res) => {
 		res.write(data);
 		res.end();
 	});
-});
+}); */
+
+
+module.exports = app;
