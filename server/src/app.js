@@ -66,11 +66,11 @@ app.get('/actors', actorControllers.getActors);
 // getActorById
 app.get('/actors/:actorId', actorControllers.getActorById);
 // createActor
-app.post('/actors/', ()=>{})
+app.post('/actors', actorControllers.createActor);
 // updateActor
-app.put('/actors/id', ()=>{})
+app.put('/actors', actorControllers.updateActor);
 // deleteActor
-app.delete('/actors/id', ()=>{})
+app.delete('/actors/id', actorControllers.deleteActor);
 app.get('/contact', (req, res) => {
 	fs.readFile('./public/contact.html', 'utf-8', (err, data) => {
 		if (err) {
