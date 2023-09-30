@@ -1,5 +1,5 @@
-GET http://localhost:5000/actors
+GET http://localhost:5000/actors HTTP/1.1
 
 ###
 
-GET http://localhost:5000/actors/1
+GET http://localhost:5000/actors/ea5dbc4f-9654-4f39-93c1-fa7ad80be872 HTTP/1.1

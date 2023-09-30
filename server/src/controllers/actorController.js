@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const actors = [
 	{
-		id: 1,
+		id: uuidv4(),
 		fullName: 'Harrison Ford',
 		birthYear: 1942,
 		nationality: 'USA',
