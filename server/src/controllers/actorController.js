@@ -68,6 +68,7 @@ class ActorController {
 			res.json(newActor.rows[0]);
 		} catch (error) {
 			console.log(error);
+			res.status(500).send(error);
 		}
 	}
 

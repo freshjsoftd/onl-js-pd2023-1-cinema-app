@@ -10,9 +10,9 @@ POST http://localhost:5000/api/actors HTTP/1.1
 Content-Type: application/json
 
 {
-    "full_name": "Jhone Doe",
+    "full_name": "  Jhone Doe",
     "birth_year": "1985-01-02",
-    "death_year": null,
+    "death_year": 0,
     "nationality": "USA",
     "foto": "https://pbs.twimg.com/media/Erf5Hm_XUAMwZNg.jpg"
 }
