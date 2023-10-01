@@ -1,16 +1,16 @@
-GET http://localhost:5000/api/actors HTTP/1.1
+GET http://localhost:5000/api/directors HTTP/1.1
 
 ###
 
-GET http://localhost:5000/api/actors/2 HTTP/1.1
+GET http://localhost:5000/api/directors/2 HTTP/1.1
 
 ###
 
-POST http://localhost:5000/api/actors HTTP/1.1
+POST http://localhost:5000/api/directors HTTP/1.1
 Content-Type: application/json
 
 {
-    "full_name": "Jhone Doe",
+    "full_name": "   Jhone Doe",
     "birth_year": "1985-01-02",
     "death_year": null,
     "nationality": "USA",
@@ -19,19 +19,19 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:5000/api/actors HTTP/1.1
+PUT http://localhost:5000/api/directors HTTP/1.1
 Content-Type: application/json
 
 {
-    "full_name": "Jhone Doe",
+    "full_name": "Jane Smith",
     "birth_year": "1985-01-02",
     "death_year": null,
-    "nationality": "USA",
+    "nationality": "GB",
     "foto": "https://pbs.twimg.com/media/Erf5Hm_XUAMwZNg.jpg",
-    "actor_id": 30
+    "director_id": 8
 }
 
 ###
 
-DELETE http://localhost:5000/api/actors/101 HTTP/1.1
+DELETE http://localhost:5000/api/directors/10 HTTP/1.1
 Content-Type: application/json

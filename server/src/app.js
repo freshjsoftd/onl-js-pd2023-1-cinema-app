@@ -3,7 +3,12 @@ const path = require('path');
 
 const express = require('express');
 
-const actorControllers = require('./controllers/actorController');
+
+const router = require('./routers')
+// const actorRouters = require('./routers/actorRouters');
+// const directorRouters = require('./routers/directorRouters');
+// const actorControllers = require('./controllers/actorController');
+// const directorControllers = require('./controllers/directorController');
 const { getTime, showTime } = require('./middleware/timeMiddleware')
 
 const app = express();
@@ -19,7 +24,9 @@ app.use('/time', getTime, showTime);
 // app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.static(path.resolve('public')));
 
-
+//Routers
+app.use('/api', router);
+// app.use('/', directorRouters);
 
 // Process
 console.log(process.env.PORT)
@@ -60,17 +67,32 @@ app.get('/', (req, res) => {
 		res.end();
 	});
 });
-// Actors
+
 // getAllActors
-app.get('/actors', actorControllers.getActors);
-// getActorById
-app.get('/actors/:actorId', actorControllers.getActorById);
-// createActor
-app.post('/actors', actorControllers.createActor);
+// app.get('/actors', actorControllers.getActors);
+// // getActorById
+// app.get('/actors/:actorId', actorControllers.getActorById);
+// // createActor
+// app.post('/actors', actorControllers.createActor);
 // updateActor
-app.put('/actors', actorControllers.updateActor);
+// app.put('/actors', actorControllers.updateActor);
 // deleteActor
-app.delete('/actors/id', actorControllers.deleteActor);
+// app.delete('/actors/:actorId', actorControllers.deleteActor);
+
+
+// Directors
+// getAllDirectors
+// app.get('/directors', directorControllers.getDirectors);
+// // getDirectorById
+// app.get('/directors/:directorId', directorControllers.getDirectorById);
+// // createDirector
+// app.post('/directors', directorControllers.createDirector);
+// // updateDirector
+// app.put('/directors', directorControllers.updateDirector);
+// // deleteDirector
+// app.delete('/directors/:directorId', directorControllers.deleteDirector);
+
+
 app.get('/contact', (req, res) => {
 	fs.readFile('./public/contact.html', 'utf-8', (err, data) => {
 		if (err) {
