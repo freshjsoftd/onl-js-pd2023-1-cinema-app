@@ -38,7 +38,7 @@ function MovieForm() {
 	const goHome = () => navigate('/movies');
 
 	const onMovieSubmit = (values) => {
-		!values.id
+		!values.movie_id
 			? dispatch(createMovie(values))
 			: dispatch(updateMovie(values));
 	};

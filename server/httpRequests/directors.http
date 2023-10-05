@@ -23,12 +23,12 @@ PUT http://localhost:5000/api/directors HTTP/1.1
 Content-Type: application/json
 
 {
-    "full_name": "Jane Smith",
+    "full_name": "Jhon Smith",
     "birth_year": "1985-01-02",
     "death_year": null,
     "nationality": "GB",
     "foto": "https://pbs.twimg.com/media/Erf5Hm_XUAMwZNg.jpg",
-    "director_id": 8
+    "director_id": 11
 }
 
 ###
