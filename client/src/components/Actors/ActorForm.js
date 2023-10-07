@@ -9,8 +9,6 @@ import SaveIcon from '@mui/icons-material/Save';
 import ClearIcon from '@mui/icons-material/Clear';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import moment from 'moment';
-// import AddIcon from '@mui/icons-material/Add';
-// import RemoveIcon from '@mui/icons-material/Remove';
 
 import { emptyActor } from '../../constants';
 import { createActor, updateActor } from '../../store/slices/actorsSlice';

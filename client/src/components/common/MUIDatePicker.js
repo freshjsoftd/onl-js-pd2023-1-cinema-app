@@ -4,11 +4,8 @@ import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-// import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-// import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-// import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
-export default function MaterialUIPickers() {
+ function MaterialUIPickers() {
   const [value, setValue] = useState(new Date(''));
 
   const handleChange = (newValue) => {
@@ -25,26 +22,9 @@ export default function MaterialUIPickers() {
           onChange={handleChange}
           renderInput={(params) => <TextField {...params} />}
         />
-        {/* <MobileDatePicker
-          label="Date mobile"
-          inputFormat="MM/dd/yyyy"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-        />
-        <TimePicker
-          label="Time"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-        />
-        <DateTimePicker
-          label="Date&Time picker"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-        /> */}
       </Stack>
     </LocalizationProvider>
   );
 }
+
+export default MaterialUIPickers;

@@ -10,7 +10,7 @@ const router = require('./routers')
 // const directorRouters = require('./routers/directorRouters');
 // const actorControllers = require('./controllers/actorController');
 // const directorControllers = require('./controllers/directorController');
-const { getTime, showTime } = require('./middleware/timeMiddleware')
+// const { getTime, showTime } = require('./middleware/timeMiddleware')
 
 const app = express();
 
@@ -20,8 +20,9 @@ app.use(express.json());
 // Get-Show time
 /* app.use(getTime);
 app.use(showTime); */
-app.use('/time', getTime, showTime);
+// app.use('/time', getTime, showTime);
 
+// Variant to provide static
 // app.use(express.static('./public'));
 // app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.static(path.resolve('public')));
@@ -31,22 +32,22 @@ app.use('/api', router);
 // app.use('/', directorRouters);
 
 // Process
-console.log(process.env.PORT)
+// console.log(process.env.PORT)
 
 // Downloading
-app.get('/download', (req, res) => {
-	console.log('download');
-	res.download(path.resolve('like.txt'))
-})
+// app.get('/download', (req, res) => {
+// 	console.log('download');
+// 	res.download(path.resolve('like.txt'))
+// })
 
 // Redirect
-app.get('/phones', (req, res) => {
-	res.redirect('/contact');
-})
+// app.get('/phones', (req, res) => {
+// 	res.redirect('/contact');
+// })
 
 // Send query params
 // address /codes?id=100&code=WWW
-app.get('/codes', (req, res) => {
+/* app.get('/codes', (req, res) => {
 	console.log(req.query)
 	const id = req.query.id;
 	const code = req.query.code;
@@ -55,8 +56,7 @@ app.get('/codes', (req, res) => {
 	console.log(res.headersSent);
 	res.send(`Id: ${id}, Code: ${code}`);
 	console.log(res.headersSent);
-
-})
+}) */
 
 app.get('/', (req, res) => {
 	fs.readFile('./public/index.html', 'utf-8', (err, data) => {
@@ -95,7 +95,7 @@ app.get('/', (req, res) => {
 // app.delete('/directors/:directorId', directorControllers.deleteDirector);
 
 
-app.get('/contact', (req, res) => {
+/* app.get('/contact', (req, res) => {
 	fs.readFile('./public/contact.html', 'utf-8', (err, data) => {
 		if (err) {
 			res.statusCode = 404;
@@ -105,7 +105,7 @@ app.get('/contact', (req, res) => {
 		res.write(data);
 		res.end();
 	});
-});
+}); */
 /* app.get('/images/*', (req, res) => {
 	const url = req.url;
 	fs.readFile(`./public${url}`, (err, data) => {
