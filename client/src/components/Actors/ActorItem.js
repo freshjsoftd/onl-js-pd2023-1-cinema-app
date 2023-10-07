@@ -11,7 +11,8 @@ function ActorItem() {
 
   const { id } = useParams();
 
-  const star = actors.find((actor) => actor.id === Number(id));
+  const star = actors.find((actor) => actor.actor_id === Number(id));
+  console.log(star);
   const actor = star ? star : emptyActor;
 
   return (
@@ -33,6 +34,7 @@ function ActorItem() {
 			<Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
 				<Stack>
 					<h2>Actor definition</h2>
+					<p>{actor.full_name}</p>
 					<h3>Birth Year</h3>
 					{actor.birth_year}
 					{/* <h3>Directors</h3>

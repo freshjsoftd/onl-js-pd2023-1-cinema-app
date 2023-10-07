@@ -16,14 +16,12 @@ import MUIDatePicker from '../common/MUIDatePicker';
 
 function ActorForm() {
 	const dispatch = useDispatch();
-	const {
-		actorsList: { actors },
-	} = useSelector((state) => state);
+	const actors = useSelector((state) => state.actorsList.actors);
 
 	const { id } = useParams();
 	const navigate = useNavigate();
 
-	const currentActor = actors.find((actor) => actor.id === Number(id));
+	const currentActor = actors.find((actor) => actor.actor_id === Number(id));
 
 	const schema = Yup.object().shape({
 		full_name: Yup.string().trim().required(),
