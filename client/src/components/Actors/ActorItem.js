@@ -9,9 +9,10 @@ function ActorItem() {
 
   const actors = useSelector((state) => state.actorsList.actors);
 
-  const { id } = useParams();
+  const { actorId } = useParams();
 
-  const star = actors.find((actor) => actor.actor_id === Number(id));
+  const star = actors.find((actor) => actor.actor_id === Number(actorId));
+  console.log(actorId);
   console.log(star);
   const actor = star ? star : emptyActor;
 
